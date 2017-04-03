@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
 
             try {
-                URL url = new URL("http://10.0.2.2/login.php");
+                //URL url = new URL("http://10.0.2.2/login.php");
+                URL url = new URL("http://mobapp.ncs.no/login.php");
                 String urlParams = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             String err=null;
-            try {           //når vi får problemer med return-value ikke er JSONObject, bruk throw? se C++ lecture slides
+            try {
                 JSONObject root = new JSONObject(s);
                 //JSONArray root = new JSONArray(s);
                 JSONObject user_data = root.getJSONObject("user_data");
